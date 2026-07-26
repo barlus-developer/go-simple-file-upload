@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test:
+    name: Error, unit, API, and build tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+          cache: true
+
+      - name: Download dependencies
+        run: go mod download
+
+      - name: Error tests
+        run: go test ./internal/infrastructure/config -run TestLoadReturnsErrorForInvalidConfig
+
+      - name: Unit tests
+        run: go test ./internal/application/... ./internal/interfaces/http/middleware
+
+      - name: API tests
+        run: go test ./internal/interfaces/http/router
+
+      - name: All tests
+        run: go test ./...
+
+      - name: Build test
+        run: go build ./cmd/server

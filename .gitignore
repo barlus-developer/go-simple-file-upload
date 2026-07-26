@@ -1,0 +1,38 @@
+# Binaries and build output
+/bin/
+/build/
+/dist/
+/server
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Go workspace and coverage artifacts
+go.work
+go.work.sum
+coverage.out
+coverage.html
+*.coverprofile
+
+# Local configuration
+config.yaml
+config.yml
+.env
+.env.*
+!.env.example
+
+# Local file storage
+/uploads/
+
+# Logs
+*.log
+logs/
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
