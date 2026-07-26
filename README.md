@@ -148,4 +148,3 @@ See [ARCHITECTURE.md](./ARCHITECTURE.md) for the DDD package layout and request-
 ## Contributors
 
 - [barlus-developer](https://github.com/barlus-developer)
-- Codex
